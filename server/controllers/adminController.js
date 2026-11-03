@@ -6,10 +6,10 @@ const jwt = require("jsonwebtoken");
 const cookieOptions = {
   httpOnly: true,
   secure: process.env.NODE_ENV === "production",
-  sameSite: process.env.COOKIE_SAME_SITE || "lax",
+  sameSite:
+    process.env.NODE_ENV === "production" ? "none" : "lax",
   path: "/",
 };
-
 // Generate Access and Refresh Tokens
 const generateTokens = (adminId) => {
   const accessToken = jwt.sign(
