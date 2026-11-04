@@ -181,8 +181,15 @@ const sendEnquiryEmail = async (req, res) => {
     const safe = Object.fromEntries(Object.entries({ name, email, phone, car, pickupLocation, destination, travelDate, message }).map(([key, value]) => [key, escapeHtml(value || "")]));
 
     const adminRecipient = process.env.ADMIN_EMAIL || process.env.EMAIL_USER;
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || !adminRecipient) {
-      console.error("Email configuration missing: set EMAIL_USER, EMAIL_PASS, and ADMIN_EMAIL (or use EMAIL_USER as recipient).");
+    if (
+      !process.env.BREVO_USER ||
+      !process.env.BREVO_PASS ||
+      !process.env.EMAIL_USER ||
+      !adminRecipient
+    ) {
+      console.error(
+        "Email configuration missing: set BREVO_USER, BREVO_PASS, EMAIL_USER (verified sender), and ADMIN_EMAIL (or use EMAIL_USER as recipient)."
+      );
       return res.status(503).json({ success: false, message: "Email service is not configured. Please contact us by phone." });
     }
 
