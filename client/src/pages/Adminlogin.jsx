@@ -91,7 +91,7 @@ export default function AdminLogin() {
       {/* ---------- Form ---------- */}
       <section className="flex items-center justify-center bg-[#f6f7fb] px-4 py-12 sm:px-8">
         <div className="w-full max-w-[440px] rounded-2xl bg-white p-6 shadow-[0_12px_40px_rgba(0,0,0,0.1)] sm:p-10">
-          <img src="/logo.png" alt="Lucky Travels" className="mb-6 h-12 w-auto lg:hidden" />
+          <img src="/Logo.png" alt="Lucky Travels" className="mb-6 h-12 w-auto lg:hidden" />
 
           <p className="text-xs font-semibold uppercase tracking-wide text-[#e3252d]">Admin login</p>
           <h2 className="mt-3 text-3xl font-bold text-[#0f1b3d]">Welcome back</h2>
