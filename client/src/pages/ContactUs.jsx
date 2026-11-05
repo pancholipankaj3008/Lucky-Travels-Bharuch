@@ -294,6 +294,10 @@ function ContactUs() {
             <div className={`mt-1 flex flex-wrap gap-3 ${revealUp(asideIn)}`} style={asideDelay(700)}>
               <a
                 href={`tel:${PHONE_LINK}`}
+                onClick={(e) => {
+    e.preventDefault();
+    gtag_report_conversion(`tel:${PHONE_LINK}`);
+  }}
                 className="rounded-md bg-[#E5252A] px-6 py-2 text-base font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#c91e23] hover:shadow-lg hover:shadow-[#E5252A]/40 active:translate-y-0 active:scale-[0.98] motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:text-[18px]"
               >
                 Call Now
